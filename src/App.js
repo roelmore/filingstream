@@ -26,17 +26,17 @@ function App() {
 
 
   // let currentPeer = 'KEY';
-  const [peerFilings, setPeerFilings] = useState([]);
-  const peerFilingsData = JSON.stringify({"query":{"query_string":{"query":"ticker:KEY AND formType:\"10-Q\""}},"from":"0","size":"3","sort":[{"filedAt":{"order":"desc"}}]});
-  const peerFilingsConfig = {
-    method: 'post',
-    url: 'https://api.sec-api.io',
-    headers: {
-      'Authorization': '5e1a8deffe93173bf6b3632c8af36d5a0c978f1c7537b6d6a26a327aa3530428',
-      'Content-Type': 'application/json'
-    },
-    data: peerFilingsData
-  }
+  // const [peerFilings, setPeerFilings] = useState([]);
+  // const peerFilingsData = JSON.stringify({"query":{"query_string":{"query":"ticker:KEY AND formType:\"10-Q\""}},"from":"0","size":"3","sort":[{"filedAt":{"order":"desc"}}]});
+  // const peerFilingsConfig = {
+  //   method: 'post',
+  //   url: 'https://api.sec-api.io',
+  //   headers: {
+  //     'Authorization': '5e1a8deffe93173bf6b3632c8af36d5a0c978f1c7537b6d6a26a327aa3530428',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   data: peerFilingsData
+  // }
 
   const fetchPeerData = async () => {
     const peerResponse = await axios(peerFilingsConfig)
