@@ -38,11 +38,11 @@ function App() {
   //   data: peerFilingsData
   // }
 
-  const fetchPeerData = async () => {
-    const peerResponse = await axios(peerFilingsConfig)
-    console.log(peerResponse.data.peerFilings)
-    setPeerFilings(peerResponse.data.peerFilings)
-  }
+  // const fetchPeerData = async () => {
+  //   const peerResponse = await axios(peerFilingsConfig)
+  //   console.log(peerResponse.data.peerFilings)
+  //   setPeerFilings(peerResponse.data.peerFilings)
+  // }
 
 
 
