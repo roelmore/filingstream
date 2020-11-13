@@ -59,7 +59,7 @@ function App() {
       <div className="peerDiv card text-center">
         <div className="card-header">Recent Peer Filings
           <div>
-            <button className="fetch-button" onClick={fetchPeerData}>Fetch Data</button>
+            {/* <button className="fetch-button" onClick={fetchPeerData}>Fetch Data</button> */}
           </div>
         </div>
         <Table striped bordered hover size="sm">
