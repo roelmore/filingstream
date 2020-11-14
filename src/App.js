@@ -5,46 +5,26 @@ import axios from 'axios';
 function App() {
 
   const [filings, setFilings] = useState([]);
-  const apiData = JSON.stringify({"query":{"query_string":{"query":"ticker:KEY AND formType:\"10-Q\""}},"from":"0","size":"3","sort":[{"filedAt":{"order":"desc"}}]});
-  const config = {
-    method: 'post',
-    url: 'https://api.sec-api.io',
-    headers: {
-      'Authorization': '5e1a8deffe93173bf6b3632c8af36d5a0c978f1c7537b6d6a26a327aa3530428',
-      'Content-Type': 'application/json'
-    },
-    data: apiData
-  }
 
   const fetchData = async () => {
+
+    let apiCompany = "KEY";
+    let apiFilingType = '10-Q';
+    let apiSize = 3;
+    const apiData = JSON.stringify({"query":{"query_string":{"query":"ticker:" + apiCompany + " AND formType:\"" + apiFilingType + "\""}},"from":"0","size":"" + apiSize + "","sort":[{"filedAt":{"order":"desc"}}]});
+    const config = {
+      method: 'post',
+      url: 'https://api.sec-api.io',
+      headers: {
+        'Authorization': 'fcce3b6505193d35f86d546c3aad6680072f421218789bb3d8daee6a2fda257f',
+        'Content-Type': 'application/json'
+      },
+      data: apiData
+    }
     const response = await axios(config)
-    console.log(response.data.filings)
+    console.log(response.data)
     setFilings(response.data.filings)
   }
-
-
-
-
-  // let currentPeer = 'KEY';
-  // const [peerFilings, setPeerFilings] = useState([]);
-  // const peerFilingsData = JSON.stringify({"query":{"query_string":{"query":"ticker:KEY AND formType:\"10-Q\""}},"from":"0","size":"3","sort":[{"filedAt":{"order":"desc"}}]});
-  // const peerFilingsConfig = {
-  //   method: 'post',
-  //   url: 'https://api.sec-api.io',
-  //   headers: {
-  //     'Authorization': '5e1a8deffe93173bf6b3632c8af36d5a0c978f1c7537b6d6a26a327aa3530428',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   data: peerFilingsData
-  // }
-
-  // const fetchPeerData = async () => {
-  //   const peerResponse = await axios(peerFilingsConfig)
-  //   console.log(peerResponse.data.peerFilings)
-  //   setPeerFilings(peerResponse.data.peerFilings)
-  // }
-
-
 
   return (
     <Container className="p-3">
@@ -59,7 +39,7 @@ function App() {
       <div className="peerDiv card text-center">
         <div className="card-header">Recent Peer Filings
           <div>
-            {/* <button className="fetch-button" onClick={fetchPeerData}>Fetch Data</button> */}
+            <button className="fetch-button" onClick={fetchData}>Fetch Data</button>
           </div>
         </div>
         <Table striped bordered hover size="sm">
@@ -78,6 +58,7 @@ function App() {
             </tr>
 
           </thead>
+
         </Table>
       </div>
 
