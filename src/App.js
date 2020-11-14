@@ -4,7 +4,6 @@ import axios from 'axios';
 
 function App() {
 
-  const [filings, setFilings] = useState([]);
   const [peers, setPeers] = useState([]);
   let results = [];
   const fetchData = async () => {
@@ -37,7 +36,6 @@ function App() {
                     response.data.filings[1].filedAt,
                     response.data.filings[2].linkToFilingDetails,
                     response.data.filings[2].filedAt])
-    setFilings(response.data.filings)
     }
     console.log(results);
     setPeers(results);
