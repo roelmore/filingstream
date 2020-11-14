@@ -48,7 +48,7 @@ function App() {
       <Jumbotron>
       <h1 className="header">FilingStream</h1>
       <h2>Monitor relevant SEC filings.</h2>
-      <h3>Currently configured to pull the 3 most recent 10-Qs for KEY, CFG, CMA, FITB, and HBAN.</h3>
+      <h5>Currently configured to pull the 3 most recent 10-Qs for KEY, CFG, CMA, FITB, and HBAN.</h5>
   
       </Jumbotron>
 
